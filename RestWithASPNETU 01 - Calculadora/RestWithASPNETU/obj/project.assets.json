@@ -12191,11 +12191,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\ProjetoAulas\\RestWithASP-NETU\\RestWithASPNETU\\RestWithASPNETU\\RestWithASPNETU.csproj",
+      "projectUniqueName": "C:\\ProjetoAulas\\RestWithASP-NETU\\RestWithASPNETU 01 - Calculadora\\RestWithASPNETU\\RestWithASPNETU.csproj",
       "projectName": "RestWithASPNETU",
-      "projectPath": "C:\\ProjetoAulas\\RestWithASP-NETU\\RestWithASPNETU\\RestWithASPNETU\\RestWithASPNETU.csproj",
+      "projectPath": "C:\\ProjetoAulas\\RestWithASP-NETU\\RestWithASPNETU 01 - Calculadora\\RestWithASPNETU\\RestWithASPNETU.csproj",
       "packagesPath": "C:\\Users\\mt12179\\.nuget\\packages\\",
-      "outputPath": "C:\\ProjetoAulas\\RestWithASP-NETU\\RestWithASPNETU\\RestWithASPNETU\\obj\\",
+      "outputPath": "C:\\ProjetoAulas\\RestWithASP-NETU\\RestWithASPNETU 01 - Calculadora\\RestWithASPNETU\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

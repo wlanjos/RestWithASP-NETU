@@ -12,3 +12,17 @@ C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU\RestWithASPNETU\obj\Debug\netco
 C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU\RestWithASPNETU\obj\Debug\netcoreapp2.2\RestWithASPNETU.RazorTargetAssemblyInfo.cache
 C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU\RestWithASPNETU\obj\Debug\netcoreapp2.2\RestWithASPNETU.dll
 C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU\RestWithASPNETU\obj\Debug\netcoreapp2.2\RestWithASPNETU.pdb
+C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU 01 - Calculadora\RestWithASPNETU\bin\Debug\netcoreapp2.2\RestWithASPNETU.deps.json
+C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU 01 - Calculadora\RestWithASPNETU\bin\Debug\netcoreapp2.2\RestWithASPNETU.runtimeconfig.json
+C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU 01 - Calculadora\RestWithASPNETU\bin\Debug\netcoreapp2.2\RestWithASPNETU.runtimeconfig.dev.json
+C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU 01 - Calculadora\RestWithASPNETU\bin\Debug\netcoreapp2.2\RestWithASPNETU.dll
+C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU 01 - Calculadora\RestWithASPNETU\bin\Debug\netcoreapp2.2\RestWithASPNETU.pdb
+C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU 01 - Calculadora\RestWithASPNETU\obj\Debug\netcoreapp2.2\RestWithASPNETU.csprojAssemblyReference.cache
+C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU 01 - Calculadora\RestWithASPNETU\obj\Debug\netcoreapp2.2\RestWithASPNETU.csproj.CoreCompileInputs.cache
+C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU 01 - Calculadora\RestWithASPNETU\obj\Debug\netcoreapp2.2\RestWithASPNETU.RazorAssemblyInfo.cache
+C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU 01 - Calculadora\RestWithASPNETU\obj\Debug\netcoreapp2.2\RestWithASPNETU.RazorAssemblyInfo.cs
+C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU 01 - Calculadora\RestWithASPNETU\obj\Debug\netcoreapp2.2\RestWithASPNETU.AssemblyInfoInputs.cache
+C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU 01 - Calculadora\RestWithASPNETU\obj\Debug\netcoreapp2.2\RestWithASPNETU.AssemblyInfo.cs
+C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU 01 - Calculadora\RestWithASPNETU\obj\Debug\netcoreapp2.2\RestWithASPNETU.RazorTargetAssemblyInfo.cache
+C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU 01 - Calculadora\RestWithASPNETU\obj\Debug\netcoreapp2.2\RestWithASPNETU.dll
+C:\ProjetoAulas\RestWithASP-NETU\RestWithASPNETU 01 - Calculadora\RestWithASPNETU\obj\Debug\netcoreapp2.2\RestWithASPNETU.pdb
