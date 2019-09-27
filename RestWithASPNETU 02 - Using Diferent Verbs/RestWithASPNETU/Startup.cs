@@ -6,10 +6,13 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using RestWithASPNETU.Model.Context;
+using RestWithASPNETU.Services.Business;
 
 namespace RestWithASPNETU
 {
@@ -25,7 +28,14 @@ namespace RestWithASPNETU
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            var connection = Configuration["MySqlConnection:MySqlConnectionStrin"];
+            services.AddDbContext<MySQLContext>(options => options.UseMySql(connection));
+            services.AddMvc();
+
+            services.AddApiVersioning();
+
+            //Dependency Injection
+            services.AddScoped<PersonBusiness, PersonBusinessImpl>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
