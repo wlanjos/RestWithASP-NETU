@@ -12,8 +12,8 @@ namespace RestWithASPNETU.Controllers
      * Por padrão o ASP.NET Core mapeia todas as classes que estendem Controller
      * Pegando a primeira parte do nome da classe em lower case [Person]Controler
      * e expoe como endipoint REST
-     */ 
-    
+     */
+
     [ApiVersion("1")]
     [ApiController]
     [Route("api/[controller]/v{version:apiVersion}")]
@@ -28,7 +28,7 @@ namespace RestWithASPNETU.Controllers
         {
             _personBusiness = personBusiness;
         }
-        
+
         //Mapea as requisições Get para http://localhost:{porta}/api/person
         // GET api/values
         [HttpGet]
@@ -45,7 +45,7 @@ namespace RestWithASPNETU.Controllers
         {
             var person = _personBusiness.FindById(id);
             if (person == null) return NotFound();
-            
+
             return Ok(person);
         }
 
@@ -65,8 +65,10 @@ namespace RestWithASPNETU.Controllers
         public ActionResult Put(int id, [FromBody] Person person)
         {
             if (person == null) return BadRequest();
+            var updatePerson = _personBusiness.Update(person);
+            if (updatePerson == null) return BadRequest();
+            return new ObjectResult(updatePerson);
 
-            return new ObjectResult(_personBusiness.Update(person));
         }
 
         //Mapeia as requisições DELETE para http://localhost:{porta}/api/person/{id}

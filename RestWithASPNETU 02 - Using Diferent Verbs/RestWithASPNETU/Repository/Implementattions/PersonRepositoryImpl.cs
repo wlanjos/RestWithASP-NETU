@@ -4,9 +4,9 @@ using System.Linq;
 using RestWithASPNETU.Model;
 using RestWithASPNETU.Model.Context;
 
-namespace RestWithASPNETU.Business.Implementattions
+namespace RestWithASPNETU.Repository.Implementattions
 {
-    public class PersonRepositoryImpl : IPersonBusiness
+    public class PersonRepositoryImpl : IPersonRepository
     {
         public MySQLContext _context;
 
@@ -74,7 +74,8 @@ namespace RestWithASPNETU.Business.Implementattions
         {
             // Verificamos se a pessoa existe na base
             // Se não existir retornamos uma instancia vazia de pessoa
-            if (!Exist(person.Id)) return new Person();
+            if (!Exist(person.Id)) return null;
+
 
             // Pega o estado atual do registro no banco
             // seta as alterações e salva

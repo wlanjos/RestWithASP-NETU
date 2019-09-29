@@ -12,7 +12,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using RestWithASPNETU.Model.Context;
-using RestWithASPNETU.Services.Business;
+using RestWithASPNETU.Business;
+using RestWithASPNETU.Business.Implementattions;
+using RestWithASPNETU.Repository;
+using RestWithASPNETU.Repository.Implementattions;
 
 namespace RestWithASPNETU
 {
@@ -35,7 +38,8 @@ namespace RestWithASPNETU
             services.AddApiVersioning();
 
             //Dependency Injection
-            services.AddScoped<PersonBusiness, PersonBusinessImpl>();
+            services.AddScoped<IPersonBusiness, PersonBusinessImpl>();
+            services.AddScoped<IPersonRepository, PersonRepositoryImpl>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

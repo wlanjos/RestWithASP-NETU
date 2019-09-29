@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using RestWithASPNETU.Model;
 using RestWithASPNETU.Model.Context;
+using RestWithASPNETU.Repository;
 
 namespace RestWithASPNETU.Business.Implementattions
 {
@@ -15,7 +16,7 @@ namespace RestWithASPNETU.Business.Implementattions
         {
             _repository = repository;
         }
-            
+
         private volatile int count;
 
         // Metodo responsável por criar uma nova pessoa
@@ -24,16 +25,14 @@ namespace RestWithASPNETU.Business.Implementattions
         // na base de dados
         public Person Create(Person person)
         {
-           
+
             return _repository.Create(person);
         }
 
-
-        // Método responsável por deletar
-        // uma pessoa a partir de um ID
-        public void Delete(long id)
+        // Método responsável por retornar uma pessoa
+        public Person FindById(long id)
         {
-             _repository.Delete(id);
+            return _repository.FindById(id);
 
         }
 
@@ -43,20 +42,19 @@ namespace RestWithASPNETU.Business.Implementattions
             return _repository.FindAll();
         }
 
-
-        // Método responsável por retornar uma pessoa
-        public Person FindById(long id)
-        {
-            return _repository.FindById(id);
-           
-        }
-
         // Método responsável por atualizar uma pessoa
         public Person Update(Person person)
         {
             return _repository.Update(person);
         }
 
-        
+        // Método responsável por deletar
+        // uma pessoa a partir de um ID
+        public void Delete(long id)
+        {
+            _repository.Delete(id);
+
+        }
+
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RestWithASPNETU.Business
+namespace RestWithASPNETU.Repository
 {
     public interface IPersonRepository
     {
