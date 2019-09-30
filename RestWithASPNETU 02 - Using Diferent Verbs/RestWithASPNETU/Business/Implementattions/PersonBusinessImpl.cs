@@ -5,14 +5,15 @@ using System.Threading;
 using RestWithASPNETU.Model;
 using RestWithASPNETU.Model.Context;
 using RestWithASPNETU.Repository;
+using RestWithASPNETU.Repository.Generic;
 
 namespace RestWithASPNETU.Business.Implementattions
 {
     public class PersonBusinessImpl : IPersonBusiness
     {
-        public IPersonRepository _repository;
+        public IRepository<Person> _repository;
 
-        public PersonBusinessImpl(IPersonRepository repository)
+        public PersonBusinessImpl(IRepository<Person> repository)
         {
             _repository = repository;
         }
