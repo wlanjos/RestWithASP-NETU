@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using RestWithASPNETU.Data.Converters;
+using RestWithASPNETU.Data.VO;
 using RestWithASPNETU.Model;
 using RestWithASPNETU.Model.Context;
 using RestWithASPNETU.Repository;
@@ -13,9 +15,11 @@ namespace RestWithASPNETU.Business.Implementattions
     {
         public IRepository<Person> _repository;
 
+        public readonly PersonConverter _converter;
         public PersonBusinessImpl(IRepository<Person> repository)
         {
             _repository = repository;
+            _converter = new PersonConverter();
         }
 
         private volatile int count;
@@ -24,27 +28,28 @@ namespace RestWithASPNETU.Business.Implementattions
         // nesse momento adicionamos o objeto ao contexto
         // e finalmente salvamos as mudanças no contexto
         // na base de dados
-        public Person Create(Person person)
+        public PersonVO Create(PersonVO person)
         {
-
-            return _repository.Create(person);
+            var personEntity = _converter.Parse(person);
+            personEntity = _repository.Create(personEntity);
+            return _converter.Parse(personEntity);
         }
 
         // Método responsável por retornar uma pessoa
-        public Person FindById(long id)
+        public PersonVO FindById(long id)
         {
-            return _repository.FindById(id);
+            return _converter.Parse( _repository.FindById(id));
 
         }
 
         // Método responsável por retornar todas as pessoas
-        public List<Person> FindAll()
+        public List<PersonVO> FindAll()
         {
             return _repository.FindAll();
         }
 
         // Método responsável por atualizar uma pessoa
-        public Person Update(Person person)
+        public PersonVO Update(PersonVO person)
         {
             return _repository.Update(person);
         }

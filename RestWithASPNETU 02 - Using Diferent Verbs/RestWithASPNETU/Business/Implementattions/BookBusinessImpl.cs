@@ -9,15 +9,15 @@ namespace RestWithASPNETU.Business.Implementattions
 {
     public class BookBusinessImpl : IBookBusiness
     {
-        private IRepository<Book> _repository;
+        private IRepository<BookVO> _repository;
 
-        public BookBusinessImpl(IRepository<Book> repository)
+        public BookBusinessImpl(IRepository<BookVO> repository)
         {
             _repository = repository;
         }
 
 
-        public Book Create(Book book)
+        public BookVO Create(BookVO book)
         {
             return _repository.Create(book);
         }
@@ -27,17 +27,17 @@ namespace RestWithASPNETU.Business.Implementattions
             _repository.Delete(id);
         }
 
-        public List<Book> FindAll()
+        public List<BookVO> FindAll()
         {
             return _repository.FindAll();
         }
 
-        public Book FindById(long id)
+        public BookVO FindById(long id)
         {
             return _repository.FindById(id);
         }
 
-        public Book Update(Book book)
+        public BookVO Update(BookVO book)
         {
             return _repository.Update(book);
         }

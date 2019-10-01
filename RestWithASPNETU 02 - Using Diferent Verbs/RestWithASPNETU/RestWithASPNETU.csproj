@@ -17,11 +17,6 @@
     <PackageReference Include="MySql.Data" Version="8.0.17" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.2.0" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Data\VO\" />
-    <Folder Include="Data\Converters\" />
-  </ItemGroup>
   
 <Target Name="ChangeAliasesOfStrongNameAssemblies" BeforeTargets="FindReferenceAssembliesForReferences;ResolveReferences">
     <ItemGroup>
