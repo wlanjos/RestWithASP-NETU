@@ -16,6 +16,7 @@ namespace RestWithASPNETU.Business.Implementattions
         public IRepository<Person> _repository;
 
         public readonly PersonConverter _converter;
+
         public PersonBusinessImpl(IRepository<Person> repository)
         {
             _repository = repository;
@@ -45,13 +46,15 @@ namespace RestWithASPNETU.Business.Implementattions
         // Método responsável por retornar todas as pessoas
         public List<PersonVO> FindAll()
         {
-            return _repository.FindAll();
+            return _converter.ParserList( _repository.FindAll());
         }
 
         // Método responsável por atualizar uma pessoa
         public PersonVO Update(PersonVO person)
         {
-            return _repository.Update(person);
+            var personEntity = _converter.Parse(person);
+            personEntity = _repository.Update(personEntity);
+            return _converter.Parse(personEntity);
         }
 
         // Método responsável por deletar
@@ -60,6 +63,11 @@ namespace RestWithASPNETU.Business.Implementattions
         {
             _repository.Delete(id);
 
+        }
+
+        public bool Exists(long id)
+        {
+            return _repository.Exists(id);
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RestWithASPNETU.Data.VO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,6 @@ namespace RestWithASPNETU.Model.Context
         }
 
         public DbSet<Person> Persons { get; set; }
-        public DbSet<BookVO> Books { get; set; }
+        public DbSet<Book> Books { get; set; }
     }
 }

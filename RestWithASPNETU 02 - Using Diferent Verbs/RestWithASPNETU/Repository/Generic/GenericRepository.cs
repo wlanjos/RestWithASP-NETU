@@ -52,7 +52,7 @@ namespace RestWithASPNETU.Repository.Generic
         }
 
 
-        public bool Exist(long? id)
+        public bool Exists(long? id)
         {
             return dataSet.Any(p => p.Id.Equals(id));
         }
@@ -72,7 +72,7 @@ namespace RestWithASPNETU.Repository.Generic
 
             // Verificamos se a pessoa existe na base
             // Se não existir retornamos uma instancia vazia de pessoa
-            if (!Exist(item.Id)) return null;
+            if (!Exists(item.Id)) return null;
 
 
             // Pega o estado atual do registro no banco

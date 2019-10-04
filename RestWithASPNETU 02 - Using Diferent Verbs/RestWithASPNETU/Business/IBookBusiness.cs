@@ -1,4 +1,5 @@
-﻿using RestWithASPNETU.Model;
+﻿using RestWithASPNETU.Data.VO;
+using RestWithASPNETU.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

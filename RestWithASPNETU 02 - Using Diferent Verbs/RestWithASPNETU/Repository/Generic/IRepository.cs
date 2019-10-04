@@ -14,6 +14,6 @@ namespace RestWithASPNETU.Repository.Generic
         T Update(T item);
         void Delete(long id);
 
-        bool Exist(long? id);
+        bool Exists(long? id);
     }
 }
