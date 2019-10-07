@@ -5,6 +5,7 @@ using RestWithASPNETU.Data.VO;
 using Tapioca.HATEOAS;
 using Swashbuckle;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using Microsoft.AspNetCore.Authorization;
 
 namespace RestWithASPNETU.Controllers
 {
@@ -25,10 +26,11 @@ namespace RestWithASPNETU.Controllers
 
         
         [HttpGet]
-        [SwaggerResponse(200, Type = typeof(List<PersonVO>))]
-        [SwaggerResponse(204)]
-        [SwaggerResponse(400)]
-        [SwaggerResponse(401)]
+        [ProducesResponseType(200, Type = typeof(List<PersonVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Get()
         {
@@ -37,10 +39,11 @@ namespace RestWithASPNETU.Controllers
 
         
         [HttpGet("{id}")]
-        [SwaggerResponse(200, Type = typeof(PersonVO))]
-        [SwaggerResponse(204)]
-        [SwaggerResponse(400)]
-        [SwaggerResponse(401)]
+        [ProducesResponseType(200, Type = typeof(PersonVO))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Get(int id)
         {
@@ -52,9 +55,10 @@ namespace RestWithASPNETU.Controllers
 
       
         [HttpPost]
-        [SwaggerResponse(201, Type = typeof(PersonVO))]
-        [SwaggerResponse(400)]
-        [SwaggerResponse(401)]
+        [ProducesResponseType(201, Type = typeof(PersonVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Post([FromBody] PersonVO person)
         {
@@ -65,9 +69,10 @@ namespace RestWithASPNETU.Controllers
 
        
         [HttpPut("{id}")]
-        [SwaggerResponse(202, Type = typeof(PersonVO))]
-        [SwaggerResponse(400)]
-        [SwaggerResponse(401)]
+        [ProducesResponseType(202, Type = typeof(PersonVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Put(int id, [FromBody] PersonVO person)
         {
@@ -80,9 +85,10 @@ namespace RestWithASPNETU.Controllers
 
   
         [HttpDelete("{id}")]
-        [SwaggerResponse(202, Type = typeof(PersonVO))]
-        [SwaggerResponse(400)]
-        [SwaggerResponse(401)]
+        [ProducesResponseType(202, Type = typeof(PersonVO))]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Delete(int id)
         {
