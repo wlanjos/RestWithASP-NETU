@@ -3,8 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using RestWithASPNETU.Business;
 using RestWithASPNETU.Data.VO;
 using Tapioca.HATEOAS;
-using Swashbuckle;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using Microsoft.AspNetCore.Authorization;
 
 namespace RestWithASPNETU.Controllers
@@ -34,10 +32,36 @@ namespace RestWithASPNETU.Controllers
         [TypeFilter(typeof(HyperMediaFilter))]
         public ActionResult Get()
         {
-            return Ok(_personBusiness.FindAll());
+            return Ok (_personBusiness.FindAll());
         }
 
-        
+        [HttpGet("find-by-name")]
+        [ProducesResponseType(200, Type = typeof(List<PersonVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public ActionResult GetByName([FromQuery] string firstName, [FromQuery] string lastName)
+        {
+            return new OkObjectResult(_personBusiness.FindByName(firstName, lastName));
+        }
+
+        [HttpGet("find-with-paged-search/{sortDirection}/{pageSize}/{page}")]
+        [ProducesResponseType(200, Type = typeof(List<PersonVO>))]
+        [ProducesResponseType(204)]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(401)]
+        [Authorize("Bearer")]
+        [TypeFilter(typeof(HyperMediaFilter))]
+        public ActionResult GetPagedSearch([FromQuery] string name, string sortDirection, int pageSize, int page)
+        {
+            return new OkObjectResult(_personBusiness.FindWithPagedSeach(name,  sortDirection,  pageSize,  page));
+        }
+
+
+
+
         [HttpGet("{id}")]
         [ProducesResponseType(200, Type = typeof(PersonVO))]
         [ProducesResponseType(204)]

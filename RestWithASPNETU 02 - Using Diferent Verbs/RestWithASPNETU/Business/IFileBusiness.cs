@@ -2,9 +2,9 @@
 
 namespace RestWithASPNETU.Business
 {
-    public interface ILoginBusiness
+    public interface IFileBusiness
     {
-        object FindByLogin(UserVO user);
+        byte[] GetPDFFile();
 
        
 

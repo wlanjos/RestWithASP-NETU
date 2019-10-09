@@ -2,6 +2,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Principal;
+using RestWithASPNETU.Data.VO;
 using RestWithASPNETU.Model;
 using RestWithASPNETU.Repository;
 using RestWithASPNETU.Repository.Generic;
@@ -23,7 +24,7 @@ namespace RestWithASPNETU.Business.Implementattions
            
         }
 
-        public object FindByLogin(User user)
+        public object FindByLogin(UserVO user)
         {
             bool credentialIsValid = false;
             if (user != null & !string.IsNullOrWhiteSpace(user.Login))

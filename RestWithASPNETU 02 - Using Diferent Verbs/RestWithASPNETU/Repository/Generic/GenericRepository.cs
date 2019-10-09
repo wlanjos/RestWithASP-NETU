@@ -9,7 +9,7 @@ namespace RestWithASPNETU.Repository.Generic
 {
     public class GenericRepository<T> : IRepository<T> where T : BaseEntity
     {
-        public readonly MySQLContext _context;
+        protected readonly MySQLContext _context;
         private DbSet<T> dataSet;
 
         public GenericRepository(MySQLContext context)
@@ -66,6 +66,29 @@ namespace RestWithASPNETU.Repository.Generic
         {
             return dataSet.SingleOrDefault(p => p.Id.Equals(id));
         }
+
+        public List<T> FindWithPagedSeach(string query)
+        {
+            return dataSet.FromSql<T>(query).ToList();
+        }
+
+        public int GetCount(string query)
+        {
+
+            var result = "";
+            using (var connection = _context.Database.GetDbConnection())
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = query;
+                    result = command.ExecuteScalar().ToString();
+                }
+            }
+
+            return Int32.Parse(result);
+        }
+
 
         public T Update(T item)
         {

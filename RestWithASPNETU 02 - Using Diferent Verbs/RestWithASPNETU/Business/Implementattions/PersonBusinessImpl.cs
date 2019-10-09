@@ -1,23 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading;
+﻿using System.Collections.Generic;
 using RestWithASPNETU.Data.Converters;
 using RestWithASPNETU.Data.VO;
 using RestWithASPNETU.Model;
-using RestWithASPNETU.Model.Context;
-using RestWithASPNETU.Repository;
 using RestWithASPNETU.Repository.Generic;
+using Tapioca.HATEOAS.Utils;
 
 namespace RestWithASPNETU.Business.Implementattions
 {
     public class PersonBusinessImpl : IPersonBusiness
     {
-        public IRepository<Person> _repository;
+        public IPersonRepository _repository;
 
         public readonly PersonConverter _converter;
 
-        public PersonBusinessImpl(IRepository<Person> repository)
+        public PersonBusinessImpl(IPersonRepository repository)
         {
             _repository = repository;
             _converter = new PersonConverter();
@@ -49,6 +45,11 @@ namespace RestWithASPNETU.Business.Implementattions
             return _converter.ParserList( _repository.FindAll());
         }
 
+        public List<PersonVO> FindByName(string firstName, string lastName)
+        {
+            return _converter.ParserList(_repository.FindByName(firstName, lastName));
+        }
+
         // Método responsável por atualizar uma pessoa
         public PersonVO Update(PersonVO person)
         {
@@ -65,10 +66,42 @@ namespace RestWithASPNETU.Business.Implementattions
 
         }
 
-        public bool Exists(long id)
+
+        public PagedSearchDTO<PersonVO> FindWithPagedSeach(string name, string sortDirection, int pageSize, int page)
+        {
+            page = page > 0 ? page - 1 : 0;
+
+            string query = @"select * from Persons p where 1=1";
+            if (!string.IsNullOrEmpty(name)) query = query + $" and p.FirstName like '%{name}%'";
+            query = query + $" order by p.FirstName {sortDirection} limit {pageSize} offset {page}";
+
+            string countQuery = @"select count(*) from Persons p where 1=1";
+            if (!string.IsNullOrEmpty(name)) countQuery = countQuery + $" and p.FirstName like '%{name}%'";
+
+            var persons = _converter.ParserList(_repository.FindWithPagedSeach(query));
+
+            var totalResults = _repository.GetCount(countQuery);
+
+            return new PagedSearchDTO<PersonVO>
+            {
+                CurrentPage = page,
+                List = persons,
+                PageSize = pageSize,
+                SortDirections = sortDirection,
+                TotalResults = totalResults
+
+            };
+        }
+
+
+
+            public bool Exists(long id)
         {
             return _repository.Exists(id);
         }
+
+
+
 
     }
 }

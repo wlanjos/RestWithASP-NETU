@@ -12,7 +12,7 @@ namespace RestWithASPNETU.Controllers
     [ApiVersion("1")]
     [ApiController]
     [Route("api/[controller]/v{version:apiVersion}")]
-    public class LoginController : ControllerBase
+    public class LoginController : Controller
     {
 
         private ILoginBusiness _loginBusiness;
@@ -25,7 +25,7 @@ namespace RestWithASPNETU.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public object Post([FromBody] User user)
+        public object Post([FromBody] UserVO user)
         {
             if (user == null) return BadRequest();
 

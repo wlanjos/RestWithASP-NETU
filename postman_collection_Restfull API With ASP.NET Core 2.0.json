@@ -1,0 +1,529 @@
+{
+	"info": {
+		"_postman_id": "40f66ba3-431b-4f71-801f-d38cce61d0ba",
+		"name": "Restfull API With ASP.NET Core 2.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "",
+			"item": [
+				{
+					"name": "Login",
+					"item": [
+						{
+							"name": "",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2aafcc19-1d2e-4ed8-9ecf-f4bf87f4a194",
+										"exec": [
+											"if(responseCode.code >= 200 && responseCode.code <= 299){",
+											"    var jsonData = JSON.parse(responseBody);",
+											"    ",
+											"    postman.setEnvironmentVariable(\"bearer_token\", jsonData.accessToken);",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"login\":\"{{user}}\",\n\t\"accessKey\":\"{{password}}\"\n\t\n}"
+								},
+								"url": {
+									"raw": "https://localhost:44374/api/Login/v1/",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"api",
+										"Login",
+										"v1",
+										""
+									],
+									"variable": [
+										{
+											"key": "version",
+											"value": "{{version}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Person",
+					"item": [
+						{
+							"name": "",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain, application/json, text/json, application/xml, text/xml"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://localhost:44374/api/Persons/v1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"api",
+										"Persons",
+										"v1"
+									],
+									"variable": [
+										{
+											"key": "version",
+											"value": "{{version}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain, application/json, text/json, application/xml, text/xml"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json-patch+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://localhost:44374/api/Persons/v1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"api",
+										"Persons",
+										"v1"
+									],
+									"variable": [
+										{
+											"key": "version",
+											"value": "{{version}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain, application/json, text/json, application/xml, text/xml"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{bearer_token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://localhost:44374/api/Persons/v1/find-by-name?firstName=Leandro&lastName=Costa",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"api",
+										"Persons",
+										"v1",
+										"find-by-name"
+									],
+									"query": [
+										{
+											"key": "firstName",
+											"value": "Leandro"
+										},
+										{
+											"key": "lastName",
+											"value": "Costa"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain, application/json, text/json, application/xml, text/xml"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://localhost:44374/api/Persons/v1/:id",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"api",
+										"Persons",
+										"v1",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{id}}"
+										},
+										{
+											"key": "version",
+											"value": "{{version}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain, application/json, text/json, application/xml, text/xml"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json-patch+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://localhost:44374/api/Persons/v1/:id",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"api",
+										"Persons",
+										"v1",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{id}}"
+										},
+										{
+											"key": "version",
+											"value": "{{version}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain, application/json, text/json, application/xml, text/xml"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "https://localhost:44374/api/Persons/v1/:id",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"api",
+										"Persons",
+										"v1",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{id}}"
+										},
+										{
+											"key": "version",
+											"value": "{{version}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Book",
+					"item": [
+						{
+							"name": "",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain, application/json, text/json, application/xml, text/xml"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://localhost:44374/api/Books/v1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"api",
+										"Books",
+										"v1"
+									],
+									"variable": [
+										{
+											"key": "version",
+											"value": "{{version}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain, application/json, text/json, application/xml, text/xml"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json-patch+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://localhost:44374/api/Books/v1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"api",
+										"Books",
+										"v1"
+									],
+									"variable": [
+										{
+											"key": "version",
+											"value": "{{version}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain, application/json, text/json, application/xml, text/xml"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json-patch+json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://localhost:44374/api/Books/v1",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"api",
+										"Books",
+										"v1"
+									],
+									"variable": [
+										{
+											"key": "version",
+											"value": "{{version}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain, application/json, text/json, application/xml, text/xml"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://localhost:44374/api/Books/v1/:id",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"api",
+										"Books",
+										"v1",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "Id",
+											"value": "{{Id}}"
+										},
+										{
+											"key": "version",
+											"value": "{{version}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "text/plain, application/json, text/json, application/xml, text/xml"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "https://localhost:44374/api/Books/v1/:id",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44374",
+									"path": [
+										"api",
+										"Books",
+										"v1",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{id}}"
+										},
+										{
+											"key": "version",
+											"value": "{{version}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			],
+			"description": "Folder for "
+		}
+	]
+}

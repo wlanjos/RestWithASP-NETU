@@ -15,5 +15,8 @@ namespace RestWithASPNETU.Repository.Generic
         void Delete(long id);
 
         bool Exists(long? id);
+
+        List<T> FindWithPagedSeach(string query);
+        int GetCount(string query);
     }
 }
