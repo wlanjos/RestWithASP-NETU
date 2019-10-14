@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace RestWithASPNETU.Model
 {
+    [Table("books")]
     public class Book : BaseEntity
     {
         [Column("Title")]
